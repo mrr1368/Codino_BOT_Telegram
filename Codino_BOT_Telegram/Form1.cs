@@ -7,12 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Telegram.Bot;
 
 namespace Codino_BOT_Telegram
 {
     public partial class Form1 : Form
     {
-        static string token;
+        private static string token;
+        private TelegramBotClient bot;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +23,18 @@ namespace Codino_BOT_Telegram
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
             token = txtToken.Text;
+            RunBot();
+        }
+
+        void RunBot()
+        {
+
         }
     }
 }
