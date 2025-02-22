@@ -31,11 +31,13 @@ namespace Codino_BOT_Telegram
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtToken = new System.Windows.Forms.TextBox();
+            this.btnStart = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnStart);
             this.groupBox1.Controls.Add(this.txtToken);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -46,11 +48,20 @@ namespace Codino_BOT_Telegram
             // 
             // txtToken
             // 
-            this.txtToken.Location = new System.Drawing.Point(126, 39);
+            this.txtToken.Location = new System.Drawing.Point(209, 39);
             this.txtToken.Name = "txtToken";
-            this.txtToken.Size = new System.Drawing.Size(544, 23);
+            this.txtToken.Size = new System.Drawing.Size(461, 23);
             this.txtToken.TabIndex = 0;
             this.txtToken.Text = "7200161991:AAFQ6AeViD--V5faVkM2MwckeiJfjd-p4XQ";
+            // 
+            // btnStart
+            // 
+            this.btnStart.Location = new System.Drawing.Point(38, 39);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(114, 23);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -74,6 +85,7 @@ namespace Codino_BOT_Telegram
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtToken;
+        private System.Windows.Forms.Button btnStart;
     }
 }
 
