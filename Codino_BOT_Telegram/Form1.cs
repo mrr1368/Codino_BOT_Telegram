@@ -12,6 +12,7 @@ namespace Codino_BOT_Telegram
 {
     public partial class Form1 : Form
     {
+        static string token;
         public Form1()
         {
             InitializeComponent();
@@ -19,7 +20,7 @@ namespace Codino_BOT_Telegram
 
         private void Form1_Load(object sender, EventArgs e)
         {
-             
+            token = txtToken.Text;
         }
     }
 }
