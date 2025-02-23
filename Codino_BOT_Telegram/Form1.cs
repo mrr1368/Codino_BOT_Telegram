@@ -26,15 +26,34 @@ namespace Codino_BOT_Telegram
 
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
+        private async void btnStart_Click(object sender, EventArgs e)
         {
             token = txtToken.Text;
-            RunBot();
+            await RunBot();
         }
 
-        void RunBot()
+        async Task RunBot()
         {
+            try
+            {
+                bot = new TelegramBotClient(token);
+                var me = await bot.GetMe();                     // (اول مطمئن شو که بات آنلاین شده) 
+                this.Invoke(new Action(() => 
+                {
+                    lblstatus.Text = "Online";                  // فقط وقتی که آنلاین شد تغییر کنه
+                    lblstatus.ForeColor = Color.Green;
+                }));
+            }
+            catch (Exception ex)
+            {
+                this.Invoke(new Action(() =>
+                {
+                    lblstatus.Text = "Error";
+                    lblstatus.ForeColor = Color.Red;
+                }));
 
+                MessageBox.Show($"خطا در راه اندازی بات : {ex.Message}" , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+            }
         }
     }
 }
