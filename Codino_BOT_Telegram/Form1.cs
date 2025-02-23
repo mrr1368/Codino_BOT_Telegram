@@ -86,6 +86,20 @@ namespace Codino_BOT_Telegram
                         sb.AppendLine("آدرس ما : /Address");
                         await bot.SendMessage(chatid, sb.ToString());
                     }
+
+                    else if (text.Contains("/AboutUs"))
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        sb.AppendLine("ما خیلی خوبیم");
+                        await bot.SendMessage(chatid, sb.ToString());
+                    }
+                    
+                    else if (text.Contains("/ContactUs"))
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        sb.AppendLine("ما خیلی خوبیم");
+                        await bot.SendMessage(chatid, sb.ToString());
+                    }
                    
                 }
             }
