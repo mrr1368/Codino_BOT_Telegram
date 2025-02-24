@@ -69,51 +69,58 @@ namespace Codino_BOT_Telegram
 
             while (true)
             {
-                Update[] updates = await bot.GetUpdates(offset);
-
-                foreach (var update in updates)
+                try
                 {
-                    offset = update.Id + 1;
+                    Update[] updates = await bot.GetUpdates(offset);
 
-                    if (update.Message == null) continue;
-
-                    var text = update.Message.Text.ToLower();
-                    var from = update.Message.From;
-                    var chatid = update.Message.Chat.Id;
-
-                    if (text.Contains("/start"))
+                    foreach (var update in updates)
                     {
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine(from.Username + "\nبه بات ما خوش آمدید");
-                        sb.AppendLine("میتوانید از امکاناتی  که در اختیار شما قرار داده ایم استفاده کنید...");
-                        sb.AppendLine("درباره ما : /AboutUs");
-                        sb.AppendLine("تماس با ما : /ContactUs");
-                        sb.AppendLine("آدرس ما : /Address");
-                        await bot.SendMessage(chatid, sb.ToString());
-                    }
+                        offset = update.Id + 1;
 
-                    else if (text.Contains("/aboutus"))
-                    {
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("ما خیلی خوبیم");
-                        await bot.SendMessage(chatid, sb.ToString());
-                    }
-                    
-                    else if (text.Contains("/contactus"))
-                    {
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("شماره تماس : 09354648853");
-                        sb.AppendLine("ایمیل : mrrajabali@gmail.com");
-                        await bot.SendMessage(chatid, sb.ToString());
-                    }
+                        if (update.Message == null) continue;
 
-                    else if (text.Contains("/address"))
-                    {
-                        StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("مجموعه کدینو");
-                        await bot.SendMessage(chatid, sb.ToString());
-                    }
+                        var text = update.Message.Text.ToLower();
+                        var from = update.Message.From;
+                        var chatid = update.Message.Chat.Id;
 
+                        if (text.Contains("/start"))
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine(from.Username + "\nبه بات ما خوش آمدید");
+                            sb.AppendLine("میتوانید از امکاناتی  که در اختیار شما قرار داده ایم استفاده کنید...");
+                            sb.AppendLine("درباره ما : /AboutUs");
+                            sb.AppendLine("تماس با ما : /ContactUs");
+                            sb.AppendLine("آدرس ما : /Address");
+                            await bot.SendMessage(chatid, sb.ToString());
+                        }
+
+                        else if (text.Contains("/aboutus"))
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine("ما خیلی خوبیم");
+                            await bot.SendMessage(chatid, sb.ToString());
+                        }
+
+                        else if (text.Contains("/contactus"))
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine("شماره تماس : 09354648853");
+                            sb.AppendLine("ایمیل : mrrajabali@gmail.com");
+                            await bot.SendMessage(chatid, sb.ToString());
+                        }
+
+                        else if (text.Contains("/address"))
+                        {
+                            StringBuilder sb = new StringBuilder();
+                            sb.AppendLine("مجموعه کدینو");
+                            await bot.SendMessage(chatid, sb.ToString());
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("خطایی پیش آمد لطفا بعدا دوباره امتحان کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 await Task.Delay(1000);
