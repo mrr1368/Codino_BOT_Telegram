@@ -17,6 +17,7 @@ namespace Codino_BOT_Telegram
     {
         private static string token;
         private TelegramBotClient bot;
+        private bool isBotRunning;
 
         public Form1()
         {
@@ -31,7 +32,11 @@ namespace Codino_BOT_Telegram
         private async void btnStart_Click(object sender, EventArgs e)
         {
             token = txtToken.Text;
+
+            if (isBotRunning) return;
+            isBotRunning = true;
             await RunBot();
+            isBotRunning = false;
         }
 
         async Task RunBot()
