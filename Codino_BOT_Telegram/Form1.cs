@@ -43,7 +43,7 @@ namespace Codino_BOT_Telegram
         {
             try
             {
-                bot = new TelegramBotClient(token);
+                bot = new TelegramBotClient(token); 
                 var me = await bot.GetMe();                     // (اول مطمئن شویم که بات آنلاین شده) 
                 this.Invoke(new Action(() =>
                 {
