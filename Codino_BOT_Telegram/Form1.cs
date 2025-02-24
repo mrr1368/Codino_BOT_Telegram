@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 using Color = System.Drawing.Color;
 
@@ -101,7 +102,8 @@ namespace Codino_BOT_Telegram
                             sb.AppendLine("درباره ما : /AboutUs");
                             sb.AppendLine("تماس با ما : /ContactUs");
                             sb.AppendLine("آدرس ما : /Address");
-                            await bot.SendMessage(chatid, sb.ToString());
+                            await bot.SendMessage(chatid, sb.ToString(), replyMarkup: mainKeyboardmarkup);
+                          
                         }
 
                         else if (text.Contains("/aboutus"))
