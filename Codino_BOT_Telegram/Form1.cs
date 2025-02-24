@@ -116,9 +116,15 @@ namespace Codino_BOT_Telegram
                             await bot.SendMessage(chatid, sb.ToString());
                         }
 
+                        dgvReport.Invoke(new Action(() =>
+                        {
+                            dgvReport.Rows.Add(chatid, from.Username, text, update.Message.MessageId,
+                                update.Message.Date.ToString("yyyy/MM/dd - HH:mm"));
+                        }));
+
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("خطایی پیش آمد لطفا بعدا دوباره امتحان کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
