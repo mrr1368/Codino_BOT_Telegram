@@ -87,21 +87,31 @@ namespace Codino_BOT_Telegram
                         await bot.SendMessage(chatid, sb.ToString());
                     }
 
-                    else if (text.Contains("/AboutUs"))
+                    else if (text.Contains("/aboutus"))
                     {
                         StringBuilder sb = new StringBuilder();
                         sb.AppendLine("ما خیلی خوبیم");
                         await bot.SendMessage(chatid, sb.ToString());
                     }
                     
-                    else if (text.Contains("/ContactUs"))
+                    else if (text.Contains("/contactus"))
                     {
                         StringBuilder sb = new StringBuilder();
-                        sb.AppendLine("ما خیلی خوبیم");
+                        sb.AppendLine("شماره تماس : 09354648853");
+                        sb.AppendLine("ایمیل : mrrajabali@gmail.com");
                         await bot.SendMessage(chatid, sb.ToString());
                     }
-                   
+
+                    else if (text.Contains("/address"))
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        sb.AppendLine("مجموعه کدینو");
+                        await bot.SendMessage(chatid, sb.ToString());
+                    }
+
                 }
+
+                await Task.Delay(1000);
             }
         }
     }
