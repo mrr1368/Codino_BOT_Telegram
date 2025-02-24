@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
 using Color = System.Drawing.Color;
 
 namespace Codino_BOT_Telegram
@@ -18,6 +19,7 @@ namespace Codino_BOT_Telegram
         private static string token;
         private TelegramBotClient bot;
         private bool isBotRunning;
+        private ReplyKeyboardMarkup mainKeyboardmarkup;
 
         public Form1()
         {
@@ -26,7 +28,15 @@ namespace Codino_BOT_Telegram
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            mainKeyboardmarkup = new ReplyKeyboardMarkup();
+            KeyboardButton[] row1 =
+            {
+                new KeyboardButton("درباره ما")
+            };
+            mainKeyboardmarkup.Keyboard = new KeyboardButton[][]
+            {
+                row1
+            };
         }
 
         private async void btnStart_Click(object sender, EventArgs e)
