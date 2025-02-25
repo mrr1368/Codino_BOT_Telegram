@@ -221,7 +221,7 @@ namespace Codino_BOT_Telegram
                 FileStream fileName = new FileStream(txtFilePath.Text, FileMode.Open);
 
                 await bot.SendPhoto(chatId, photo: InputFile.FromStream(fileName, "image.jpg"), caption: txtMessage.Text);
-
+                 
             }
         }
     }
