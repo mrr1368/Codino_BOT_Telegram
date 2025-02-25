@@ -175,5 +175,30 @@ namespace Codino_BOT_Telegram
                 await Task.Delay(2000);
             }
         }
+
+        private async void btnSend_Click(object sender, EventArgs e)
+        {
+            if (dgvReport.CurrentRow != null)
+            {
+                int chatId = int.Parse(dgvReport.CurrentRow.Cells[0].Value.ToString());
+
+                try
+                {
+                    await bot.SendMessage(chatId, txtMessage.Text, parseMode: ParseMode.Html, linkPreviewOptions: true);
+                }
+
+                catch (Telegram.Bot.Exceptions.ApiRequestException ex)
+                {
+                    MessageBox.Show($"خطا در ارسال پیام:\n{ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"یک خطای نامشخص رخ داد:\n{ex.Message}", "خطای غیرمنتظره", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                txtMessage.Text = "";
+            }
+        }
     }
 }

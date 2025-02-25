@@ -159,12 +159,13 @@ namespace Codino_BOT_Telegram
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(12, 327);
+            this.btnSend.Location = new System.Drawing.Point(12, 305);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.Size = new System.Drawing.Size(75, 76);
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // Form1
             // 
