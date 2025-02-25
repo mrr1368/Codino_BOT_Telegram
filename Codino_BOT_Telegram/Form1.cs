@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.ReplyMarkups;
 using Color = System.Drawing.Color;
 
 namespace Codino_BOT_Telegram
@@ -18,6 +20,7 @@ namespace Codino_BOT_Telegram
         private static string token;
         private TelegramBotClient bot;
         private bool isBotRunning;
+        private ReplyKeyboardMarkup mainKeyboardmarkup;
 
         public Form1()
         {
@@ -26,7 +29,22 @@ namespace Codino_BOT_Telegram
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            mainKeyboardmarkup = new ReplyKeyboardMarkup();
+            KeyboardButton[] row1 =
+            {
+                new KeyboardButton("درباره ما" + "\U00002764"),
+                new KeyboardButton("تماس با ما" + "\U00002709")
+            };
+            KeyboardButton[] row2 =
+            {
+                new KeyboardButton("آدرس ما" + "\U0001F68C"),
+                new KeyboardButton("نظرسنجی" + "\U0001F6A5")
+            };
+            mainKeyboardmarkup.Keyboard = new KeyboardButton[][]
+            {
+                row1,
+                row2
+            };
         }
 
         private async void btnStart_Click(object sender, EventArgs e)
@@ -86,34 +104,59 @@ namespace Codino_BOT_Telegram
                         if (text.Contains("/start"))
                         {
                             StringBuilder sb = new StringBuilder();
-                            sb.AppendLine(from.Username + "\nبه بات ما خوش آمدید");
+                            sb.AppendLine(from.Username + "\nبه بات ما خوش آمدید" + "\U00002764");
                             sb.AppendLine("میتوانید از امکاناتی  که در اختیار شما قرار داده ایم استفاده کنید...");
                             sb.AppendLine("درباره ما : /AboutUs");
                             sb.AppendLine("تماس با ما : /ContactUs");
                             sb.AppendLine("آدرس ما : /Address");
-                            await bot.SendMessage(chatid, sb.ToString());
+                            await bot.SendMessage(chatid, sb.ToString(), replyMarkup: mainKeyboardmarkup);
+                          
                         }
 
-                        else if (text.Contains("/aboutus"))
+                        else if (text.Contains("/aboutus") || text.Contains("درباره ما"))
                         {
                             StringBuilder sb = new StringBuilder();
                             sb.AppendLine("ما خیلی خوبیم");
                             await bot.SendMessage(chatid, sb.ToString());
                         }
 
-                        else if (text.Contains("/contactus"))
+                        else if (text.Contains("/contactus") || text.Contains("تماس با ما"))
                         {
                             StringBuilder sb = new StringBuilder();
                             sb.AppendLine("شماره تماس : 09354648853");
                             sb.AppendLine("ایمیل : mrrajabali@gmail.com");
-                            await bot.SendMessage(chatid, sb.ToString());
+
+                            ReplyKeyboardMarkup contactKeyboardMarkup = new ReplyKeyboardMarkup();
+                            KeyboardButton[] row1 =
+                            {
+                                new KeyboardButton("تماس با مدیریت"),
+                                new KeyboardButton("تماس با پشتیبانی"),
+                                new KeyboardButton("تماس با واحد فروش")
+                            };
+                            KeyboardButton[] row2 =
+                            {
+                                new KeyboardButton("بازگشت")
+                            };
+                            
+                            contactKeyboardMarkup.Keyboard = new KeyboardButton[][]
+                            {
+                                row1,
+                                row2
+                            };
+                                
+                            await bot.SendMessage(chatid, sb.ToString(), replyMarkup: contactKeyboardMarkup);
                         }
 
-                        else if (text.Contains("/address"))
+                        else if (text.Contains("/address") || text.Contains("آدرس ما"))
                         {
                             StringBuilder sb = new StringBuilder();
                             sb.AppendLine("مجموعه کدینو");
                             await bot.SendMessage(chatid, sb.ToString());
+                        }
+
+                        else if (text.Contains("بازگشت"))
+                        {
+                            await bot.SendMessage(chatid, "بازکشت به منوی اصلی",replyMarkup: mainKeyboardmarkup);
                         }
 
                         dgvReport.Invoke(new Action(() =>
@@ -129,7 +172,32 @@ namespace Codino_BOT_Telegram
                     MessageBox.Show("خطایی پیش آمد لطفا بعدا دوباره امتحان کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(2000);
+            }
+        }
+
+        private async void btnSend_Click(object sender, EventArgs e)
+        {
+            if (dgvReport.CurrentRow != null)
+            {
+                int chatId = int.Parse(dgvReport.CurrentRow.Cells[0].Value.ToString());
+
+                try
+                {
+                    await bot.SendMessage(chatId, txtMessage.Text, parseMode: ParseMode.Html, linkPreviewOptions: true);
+                }
+
+                catch (Telegram.Bot.Exceptions.ApiRequestException ex)
+                {
+                    MessageBox.Show($"خطا در ارسال پیام:\n{ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"یک خطای نامشخص رخ داد:\n{ex.Message}", "خطای غیرمنتظره", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                txtMessage.Text = "";
             }
         }
     }
