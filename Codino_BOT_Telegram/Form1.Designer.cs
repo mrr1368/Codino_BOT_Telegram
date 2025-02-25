@@ -46,9 +46,16 @@ namespace Codino_BOT_Telegram
             this.btnSelectFile = new System.Windows.Forms.Button();
             this.btnSendPhoto = new System.Windows.Forms.Button();
             this.btnSendVideo = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSendText = new System.Windows.Forms.Button();
+            this.btnSendPhotoAdmin = new System.Windows.Forms.Button();
+            this.btnSendVideoAdmin = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -57,14 +64,14 @@ namespace Codino_BOT_Telegram
             this.groupBox1.Controls.Add(this.txtToken);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(676, 100);
+            this.groupBox1.Size = new System.Drawing.Size(676, 66);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Token";
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(38, 39);
+            this.btnStart.Location = new System.Drawing.Point(42, 22);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(114, 23);
             this.btnStart.TabIndex = 1;
@@ -74,7 +81,7 @@ namespace Codino_BOT_Telegram
             // 
             // txtToken
             // 
-            this.txtToken.Location = new System.Drawing.Point(209, 39);
+            this.txtToken.Location = new System.Drawing.Point(209, 22);
             this.txtToken.Name = "txtToken";
             this.txtToken.Size = new System.Drawing.Size(461, 23);
             this.txtToken.TabIndex = 0;
@@ -85,7 +92,7 @@ namespace Codino_BOT_Telegram
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblstatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 462);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 532);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(700, 26);
             this.statusStrip1.TabIndex = 1;
@@ -110,7 +117,7 @@ namespace Codino_BOT_Telegram
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dgvReport.Location = new System.Drawing.Point(12, 118);
+            this.dgvReport.Location = new System.Drawing.Point(11, 84);
             this.dgvReport.Name = "dgvReport";
             this.dgvReport.ReadOnly = true;
             this.dgvReport.RowHeadersWidth = 51;
@@ -155,18 +162,18 @@ namespace Codino_BOT_Telegram
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(93, 305);
+            this.txtMessage.Location = new System.Drawing.Point(113, 260);
             this.txtMessage.MaxLength = 2000;
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(595, 76);
+            this.txtMessage.Size = new System.Drawing.Size(575, 76);
             this.txtMessage.TabIndex = 3;
             // 
             // btnSend
             // 
-            this.btnSend.Location = new System.Drawing.Point(12, 305);
+            this.btnSend.Location = new System.Drawing.Point(12, 260);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 76);
+            this.btnSend.Size = new System.Drawing.Size(95, 76);
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -174,17 +181,17 @@ namespace Codino_BOT_Telegram
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(255, 388);
+            this.txtFilePath.Location = new System.Drawing.Point(310, 342);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.ReadOnly = true;
-            this.txtFilePath.Size = new System.Drawing.Size(432, 23);
+            this.txtFilePath.Size = new System.Drawing.Size(377, 23);
             this.txtFilePath.TabIndex = 5;
             // 
             // btnSelectFile
             // 
-            this.btnSelectFile.Location = new System.Drawing.Point(174, 387);
+            this.btnSelectFile.Location = new System.Drawing.Point(215, 341);
             this.btnSelectFile.Name = "btnSelectFile";
-            this.btnSelectFile.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectFile.Size = new System.Drawing.Size(89, 23);
             this.btnSelectFile.TabIndex = 6;
             this.btnSelectFile.Text = "...";
             this.btnSelectFile.UseVisualStyleBackColor = true;
@@ -192,9 +199,9 @@ namespace Codino_BOT_Telegram
             // 
             // btnSendPhoto
             // 
-            this.btnSendPhoto.Location = new System.Drawing.Point(93, 387);
+            this.btnSendPhoto.Location = new System.Drawing.Point(113, 341);
             this.btnSendPhoto.Name = "btnSendPhoto";
-            this.btnSendPhoto.Size = new System.Drawing.Size(75, 23);
+            this.btnSendPhoto.Size = new System.Drawing.Size(96, 23);
             this.btnSendPhoto.TabIndex = 7;
             this.btnSendPhoto.Text = "Photo";
             this.btnSendPhoto.UseVisualStyleBackColor = true;
@@ -202,19 +209,80 @@ namespace Codino_BOT_Telegram
             // 
             // btnSendVideo
             // 
-            this.btnSendVideo.Location = new System.Drawing.Point(12, 388);
+            this.btnSendVideo.Location = new System.Drawing.Point(12, 342);
             this.btnSendVideo.Name = "btnSendVideo";
-            this.btnSendVideo.Size = new System.Drawing.Size(75, 23);
+            this.btnSendVideo.Size = new System.Drawing.Size(95, 23);
             this.btnSendVideo.TabIndex = 8;
             this.btnSendVideo.Text = "Video";
             this.btnSendVideo.UseVisualStyleBackColor = true;
             this.btnSendVideo.Click += new System.EventHandler(this.btnSendVideo_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.btnSendText);
+            this.groupBox2.Controls.Add(this.btnSendPhotoAdmin);
+            this.groupBox2.Controls.Add(this.btnSendVideoAdmin);
+            this.groupBox2.Controls.Add(this.txtId);
+            this.groupBox2.Location = new System.Drawing.Point(12, 372);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(675, 94);
+            this.groupBox2.TabIndex = 9;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Channel-Admin";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(584, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 17);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Channel-ID :";
+            // 
+            // btnSendText
+            // 
+            this.btnSendText.Location = new System.Drawing.Point(203, 35);
+            this.btnSendText.Name = "btnSendText";
+            this.btnSendText.Size = new System.Drawing.Size(89, 23);
+            this.btnSendText.TabIndex = 10;
+            this.btnSendText.Text = "Send Text";
+            this.btnSendText.UseVisualStyleBackColor = true;
+            this.btnSendText.Click += new System.EventHandler(this.btnSendText_Click);
+            // 
+            // btnSendPhotoAdmin
+            // 
+            this.btnSendPhotoAdmin.Location = new System.Drawing.Point(101, 35);
+            this.btnSendPhotoAdmin.Name = "btnSendPhotoAdmin";
+            this.btnSendPhotoAdmin.Size = new System.Drawing.Size(96, 23);
+            this.btnSendPhotoAdmin.TabIndex = 11;
+            this.btnSendPhotoAdmin.Text = "Send Photo";
+            this.btnSendPhotoAdmin.UseVisualStyleBackColor = true;
+            this.btnSendPhotoAdmin.Click += new System.EventHandler(this.btnSendPhotoAdmin_Click);
+            // 
+            // btnSendVideoAdmin
+            // 
+            this.btnSendVideoAdmin.Location = new System.Drawing.Point(6, 35);
+            this.btnSendVideoAdmin.Name = "btnSendVideoAdmin";
+            this.btnSendVideoAdmin.Size = new System.Drawing.Size(89, 23);
+            this.btnSendVideoAdmin.TabIndex = 12;
+            this.btnSendVideoAdmin.Text = "Send Video";
+            this.btnSendVideoAdmin.UseVisualStyleBackColor = true;
+            this.btnSendVideoAdmin.Click += new System.EventHandler(this.btnSendVideoAdmin_Click);
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(298, 35);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(280, 23);
+            this.txtId.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 488);
+            this.ClientSize = new System.Drawing.Size(700, 558);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSendVideo);
             this.Controls.Add(this.btnSendPhoto);
             this.Controls.Add(this.btnSelectFile);
@@ -235,6 +303,8 @@ namespace Codino_BOT_Telegram
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,6 +329,12 @@ namespace Codino_BOT_Telegram
         private System.Windows.Forms.Button btnSelectFile;
         private System.Windows.Forms.Button btnSendPhoto;
         private System.Windows.Forms.Button btnSendVideo;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnSendText;
+        private System.Windows.Forms.Button btnSendPhotoAdmin;
+        private System.Windows.Forms.Button btnSendVideoAdmin;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
 
