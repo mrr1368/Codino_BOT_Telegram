@@ -104,7 +104,7 @@ namespace Codino_BOT_Telegram
                         if (text.Contains("/start"))
                         {
                             StringBuilder sb = new StringBuilder();
-                            sb.AppendLine(from.Username + "\nبه بات ما خوش آمدید" + +"\U00002764");
+                            sb.AppendLine(from.Username + "\nبه بات ما خوش آمدید" + "\U00002764");
                             sb.AppendLine("میتوانید از امکاناتی  که در اختیار شما قرار داده ایم استفاده کنید...");
                             sb.AppendLine("درباره ما : /AboutUs");
                             sb.AppendLine("تماس با ما : /ContactUs");
@@ -125,7 +125,26 @@ namespace Codino_BOT_Telegram
                             StringBuilder sb = new StringBuilder();
                             sb.AppendLine("شماره تماس : 09354648853");
                             sb.AppendLine("ایمیل : mrrajabali@gmail.com");
-                            await bot.SendMessage(chatid, sb.ToString());
+
+                            ReplyKeyboardMarkup contactKeyboardMarkup = new ReplyKeyboardMarkup();
+                            KeyboardButton[] row1 =
+                            {
+                                new KeyboardButton("تماس با مدیریت"),
+                                new KeyboardButton("تماس با پشتیبانی"),
+                                new KeyboardButton("تماس با واحد فروش")
+                            };
+                            KeyboardButton[] row2 =
+                            {
+                                new KeyboardButton("بازگشت")
+                            };
+                            
+                            contactKeyboardMarkup.Keyboard = new KeyboardButton[][]
+                            {
+                                row1,
+                                row2
+                            };
+                                
+                            await bot.SendMessage(chatid, sb.ToString(), replyMarkup: contactKeyboardMarkup);
                         }
 
                         else if (text.Contains("/address") || text.Contains("آدرس ما"))
@@ -133,6 +152,11 @@ namespace Codino_BOT_Telegram
                             StringBuilder sb = new StringBuilder();
                             sb.AppendLine("مجموعه کدینو");
                             await bot.SendMessage(chatid, sb.ToString());
+                        }
+
+                        else if (text.Contains("بازگشت"))
+                        {
+                            await bot.SendMessage(chatid, "بازکشت به منوی اصلی",replyMarkup: mainKeyboardmarkup);
                         }
 
                         dgvReport.Invoke(new Action(() =>
