@@ -47,11 +47,11 @@ namespace Codino_BOT_Telegram
             this.btnSendPhoto = new System.Windows.Forms.Button();
             this.btnSendVideo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSendText = new System.Windows.Forms.Button();
             this.btnSendPhotoAdmin = new System.Windows.Forms.Button();
             this.btnSendVideoAdmin = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
@@ -231,12 +231,14 @@ namespace Codino_BOT_Telegram
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Channel-Admin";
             // 
-            // txtId
+            // label1
             // 
-            this.txtId.Location = new System.Drawing.Point(354, 35);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(224, 23);
-            this.txtId.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(584, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 17);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Channel-ID :";
             // 
             // btnSendText
             // 
@@ -256,6 +258,7 @@ namespace Codino_BOT_Telegram
             this.btnSendPhotoAdmin.TabIndex = 11;
             this.btnSendPhotoAdmin.Text = "Send Photo";
             this.btnSendPhotoAdmin.UseVisualStyleBackColor = true;
+            this.btnSendPhotoAdmin.Click += new System.EventHandler(this.btnSendPhotoAdmin_Click);
             // 
             // btnSendVideoAdmin
             // 
@@ -265,15 +268,14 @@ namespace Codino_BOT_Telegram
             this.btnSendVideoAdmin.TabIndex = 12;
             this.btnSendVideoAdmin.Text = "Send Video";
             this.btnSendVideoAdmin.UseVisualStyleBackColor = true;
+            this.btnSendVideoAdmin.Click += new System.EventHandler(this.btnSendVideoAdmin_Click);
             // 
-            // label1
+            // txtId
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(584, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 17);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Channel-ID :";
+            this.txtId.Location = new System.Drawing.Point(354, 35);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(224, 23);
+            this.txtId.TabIndex = 0;
             // 
             // Form1
             // 

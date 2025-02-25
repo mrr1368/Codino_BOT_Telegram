@@ -234,13 +234,27 @@ namespace Codino_BOT_Telegram
 
                 FileStream fileName = new FileStream(txtFilePath.Text, FileMode.Open);
 
-                await bot.SendVideo(chatid, fileName, caption: txtMessage.Text);
+                await bot.SendVideo(chatid, fileName, caption: txtMessage.Text); 
             }
         }
 
-        private void btnSendText_Click(object sender, EventArgs e)
+        private async void btnSendText_Click(object sender, EventArgs e)
         {
+            await bot.SendMessage(txtId.Text, txtMessage.Text);
+        }
 
+        private async void btnSendPhotoAdmin_Click(object sender, EventArgs e)
+        {
+            FileStream file = new FileStream(txtFilePath.Text, FileMode.Open);
+
+            await bot.SendPhoto(txtId.Text, file, caption: txtMessage.Text);
+        }
+
+        private async void btnSendVideoAdmin_Click(object sender, EventArgs e)
+        {
+            FileStream file = new FileStream(txtFilePath.Text, FileMode.Open);
+
+            await bot.SendVideo(txtId.Text, file, caption: txtMessage.Text);
         }
     }
 }
