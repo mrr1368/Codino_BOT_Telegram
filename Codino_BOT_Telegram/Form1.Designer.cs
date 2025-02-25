@@ -208,6 +208,7 @@ namespace Codino_BOT_Telegram
             this.btnSendVideo.TabIndex = 8;
             this.btnSendVideo.Text = "Video";
             this.btnSendVideo.UseVisualStyleBackColor = true;
+            this.btnSendVideo.Click += new System.EventHandler(this.btnSendVideo_Click);
             // 
             // Form1
             // 

@@ -221,7 +221,20 @@ namespace Codino_BOT_Telegram
                 FileStream fileName = new FileStream(txtFilePath.Text, FileMode.Open);
 
                 await bot.SendPhoto(chatId, photo: InputFile.FromStream(fileName, "image.jpg"), caption: txtMessage.Text);
-                 
+                txtMessage.Text = "";
+
+            }
+        }
+
+        private async void btnSendVideo_Click(object sender, EventArgs e)
+        {
+            if (dgvReport.CurrentRow != null)
+            {
+                int chatid = int.Parse(dgvReport.CurrentRow.Cells[0].Value.ToString());
+
+                FileStream fileName = new FileStream(txtFilePath.Text, FileMode.Open);
+
+                await bot.SendVideo(chatid, fileName, caption: txtMessage.Text);
             }
         }
     }
