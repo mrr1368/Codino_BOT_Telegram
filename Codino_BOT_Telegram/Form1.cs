@@ -237,5 +237,10 @@ namespace Codino_BOT_Telegram
                 await bot.SendVideo(chatid, fileName, caption: txtMessage.Text);
             }
         }
+
+        private void btnSendText_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
