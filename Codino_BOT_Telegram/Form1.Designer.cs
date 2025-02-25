@@ -40,6 +40,8 @@ namespace Codino_BOT_Telegram
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMessage = new System.Windows.Forms.TextBox();
+            this.btnSend = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
@@ -79,7 +81,7 @@ namespace Codino_BOT_Telegram
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblstatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 424);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 462);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(700, 26);
             this.statusStrip1.TabIndex = 1;
@@ -109,7 +111,7 @@ namespace Codino_BOT_Telegram
             this.dgvReport.ReadOnly = true;
             this.dgvReport.RowHeadersWidth = 51;
             this.dgvReport.RowTemplate.Height = 24;
-            this.dgvReport.Size = new System.Drawing.Size(676, 208);
+            this.dgvReport.Size = new System.Drawing.Size(676, 170);
             this.dgvReport.TabIndex = 2;
             // 
             // Column1
@@ -147,11 +149,30 @@ namespace Codino_BOT_Telegram
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
+            // txtMessage
+            // 
+            this.txtMessage.Location = new System.Drawing.Point(93, 305);
+            this.txtMessage.Multiline = true;
+            this.txtMessage.Name = "txtMessage";
+            this.txtMessage.Size = new System.Drawing.Size(595, 76);
+            this.txtMessage.TabIndex = 3;
+            // 
+            // btnSend
+            // 
+            this.btnSend.Location = new System.Drawing.Point(12, 327);
+            this.btnSend.Name = "btnSend";
+            this.btnSend.Size = new System.Drawing.Size(75, 23);
+            this.btnSend.TabIndex = 4;
+            this.btnSend.Text = "Send";
+            this.btnSend.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 450);
+            this.ClientSize = new System.Drawing.Size(700, 488);
+            this.Controls.Add(this.btnSend);
+            this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.dgvReport);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
@@ -184,6 +205,8 @@ namespace Codino_BOT_Telegram
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.TextBox txtMessage;
+        private System.Windows.Forms.Button btnSend;
     }
 }
 

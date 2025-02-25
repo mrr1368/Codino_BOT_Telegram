@@ -172,7 +172,7 @@ namespace Codino_BOT_Telegram
                     MessageBox.Show("خطایی پیش آمد لطفا بعدا دوباره امتحان کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                await Task.Delay(1000);
+                await Task.Delay(2000);
             }
         }
     }
