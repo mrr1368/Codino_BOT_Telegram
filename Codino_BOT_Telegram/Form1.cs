@@ -61,7 +61,7 @@ namespace Codino_BOT_Telegram
         {
             try
             {
-                bot = new TelegramBotClient(token);
+                bot = new TelegramBotClient(token); 
                 var me = await bot.GetMe();                     // (اول مطمئن شویم که بات آنلاین شده) 
                 this.Invoke(new Action(() =>
                 {
@@ -198,6 +198,25 @@ namespace Codino_BOT_Telegram
                 }
 
                 txtMessage.Text = "";
+            }
+        }
+
+        private void btnSelectFile_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                txtFilePath.Text = openFile.FileName;
+            }
+        }
+
+        private void btnSendPhoto_Click(object sender, EventArgs e)
+        {
+            if (dgvReport.CurrentRow != null)
+            {
+                int chatId = int.Parse(dgvReport.CurrentRow.Cells[0].Value.ToString());
+
             }
         }
     }

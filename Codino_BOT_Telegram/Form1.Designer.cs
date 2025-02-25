@@ -42,6 +42,10 @@ namespace Codino_BOT_Telegram
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtMessage = new System.Windows.Forms.TextBox();
             this.btnSend = new System.Windows.Forms.Button();
+            this.txtFilePath = new System.Windows.Forms.TextBox();
+            this.btnSelectFile = new System.Windows.Forms.Button();
+            this.btnSendPhoto = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
@@ -167,11 +171,52 @@ namespace Codino_BOT_Telegram
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
+            // txtFilePath
+            // 
+            this.txtFilePath.Location = new System.Drawing.Point(255, 388);
+            this.txtFilePath.Name = "txtFilePath";
+            this.txtFilePath.ReadOnly = true;
+            this.txtFilePath.Size = new System.Drawing.Size(432, 23);
+            this.txtFilePath.TabIndex = 5;
+            // 
+            // btnSelectFile
+            // 
+            this.btnSelectFile.Location = new System.Drawing.Point(174, 387);
+            this.btnSelectFile.Name = "btnSelectFile";
+            this.btnSelectFile.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectFile.TabIndex = 6;
+            this.btnSelectFile.Text = "...";
+            this.btnSelectFile.UseVisualStyleBackColor = true;
+            this.btnSelectFile.Click += new System.EventHandler(this.btnSelectFile_Click);
+            // 
+            // btnSendPhoto
+            // 
+            this.btnSendPhoto.Location = new System.Drawing.Point(93, 387);
+            this.btnSendPhoto.Name = "btnSendPhoto";
+            this.btnSendPhoto.Size = new System.Drawing.Size(75, 23);
+            this.btnSendPhoto.TabIndex = 7;
+            this.btnSendPhoto.Text = "Photo";
+            this.btnSendPhoto.UseVisualStyleBackColor = true;
+            this.btnSendPhoto.Click += new System.EventHandler(this.btnSendPhoto_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 388);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 488);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSendPhoto);
+            this.Controls.Add(this.btnSelectFile);
+            this.Controls.Add(this.txtFilePath);
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtMessage);
             this.Controls.Add(this.dgvReport);
@@ -208,6 +253,10 @@ namespace Codino_BOT_Telegram
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.TextBox txtMessage;
         private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.TextBox txtFilePath;
+        private System.Windows.Forms.Button btnSelectFile;
+        private System.Windows.Forms.Button btnSendPhoto;
+        private System.Windows.Forms.Button button2;
     }
 }
 
