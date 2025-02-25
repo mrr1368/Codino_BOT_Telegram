@@ -162,18 +162,18 @@ namespace Codino_BOT_Telegram
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(93, 260);
+            this.txtMessage.Location = new System.Drawing.Point(113, 260);
             this.txtMessage.MaxLength = 2000;
             this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(595, 76);
+            this.txtMessage.Size = new System.Drawing.Size(575, 76);
             this.txtMessage.TabIndex = 3;
             // 
             // btnSend
             // 
             this.btnSend.Location = new System.Drawing.Point(12, 260);
             this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(75, 76);
+            this.btnSend.Size = new System.Drawing.Size(95, 76);
             this.btnSend.TabIndex = 4;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
@@ -181,17 +181,17 @@ namespace Codino_BOT_Telegram
             // 
             // txtFilePath
             // 
-            this.txtFilePath.Location = new System.Drawing.Point(255, 342);
+            this.txtFilePath.Location = new System.Drawing.Point(310, 342);
             this.txtFilePath.Name = "txtFilePath";
             this.txtFilePath.ReadOnly = true;
-            this.txtFilePath.Size = new System.Drawing.Size(432, 23);
+            this.txtFilePath.Size = new System.Drawing.Size(377, 23);
             this.txtFilePath.TabIndex = 5;
             // 
             // btnSelectFile
             // 
-            this.btnSelectFile.Location = new System.Drawing.Point(174, 341);
+            this.btnSelectFile.Location = new System.Drawing.Point(215, 341);
             this.btnSelectFile.Name = "btnSelectFile";
-            this.btnSelectFile.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectFile.Size = new System.Drawing.Size(89, 23);
             this.btnSelectFile.TabIndex = 6;
             this.btnSelectFile.Text = "...";
             this.btnSelectFile.UseVisualStyleBackColor = true;
@@ -199,9 +199,9 @@ namespace Codino_BOT_Telegram
             // 
             // btnSendPhoto
             // 
-            this.btnSendPhoto.Location = new System.Drawing.Point(93, 341);
+            this.btnSendPhoto.Location = new System.Drawing.Point(113, 341);
             this.btnSendPhoto.Name = "btnSendPhoto";
-            this.btnSendPhoto.Size = new System.Drawing.Size(75, 23);
+            this.btnSendPhoto.Size = new System.Drawing.Size(96, 23);
             this.btnSendPhoto.TabIndex = 7;
             this.btnSendPhoto.Text = "Photo";
             this.btnSendPhoto.UseVisualStyleBackColor = true;
@@ -211,7 +211,7 @@ namespace Codino_BOT_Telegram
             // 
             this.btnSendVideo.Location = new System.Drawing.Point(12, 342);
             this.btnSendVideo.Name = "btnSendVideo";
-            this.btnSendVideo.Size = new System.Drawing.Size(75, 23);
+            this.btnSendVideo.Size = new System.Drawing.Size(95, 23);
             this.btnSendVideo.TabIndex = 8;
             this.btnSendVideo.Text = "Video";
             this.btnSendVideo.UseVisualStyleBackColor = true;
@@ -242,9 +242,9 @@ namespace Codino_BOT_Telegram
             // 
             // btnSendText
             // 
-            this.btnSendText.Location = new System.Drawing.Point(243, 35);
+            this.btnSendText.Location = new System.Drawing.Point(203, 35);
             this.btnSendText.Name = "btnSendText";
-            this.btnSendText.Size = new System.Drawing.Size(97, 23);
+            this.btnSendText.Size = new System.Drawing.Size(89, 23);
             this.btnSendText.TabIndex = 10;
             this.btnSendText.Text = "Send Text";
             this.btnSendText.UseVisualStyleBackColor = true;
@@ -252,9 +252,9 @@ namespace Codino_BOT_Telegram
             // 
             // btnSendPhotoAdmin
             // 
-            this.btnSendPhotoAdmin.Location = new System.Drawing.Point(137, 35);
+            this.btnSendPhotoAdmin.Location = new System.Drawing.Point(101, 35);
             this.btnSendPhotoAdmin.Name = "btnSendPhotoAdmin";
-            this.btnSendPhotoAdmin.Size = new System.Drawing.Size(100, 23);
+            this.btnSendPhotoAdmin.Size = new System.Drawing.Size(96, 23);
             this.btnSendPhotoAdmin.TabIndex = 11;
             this.btnSendPhotoAdmin.Text = "Send Photo";
             this.btnSendPhotoAdmin.UseVisualStyleBackColor = true;
@@ -262,9 +262,9 @@ namespace Codino_BOT_Telegram
             // 
             // btnSendVideoAdmin
             // 
-            this.btnSendVideoAdmin.Location = new System.Drawing.Point(42, 35);
+            this.btnSendVideoAdmin.Location = new System.Drawing.Point(6, 35);
             this.btnSendVideoAdmin.Name = "btnSendVideoAdmin";
-            this.btnSendVideoAdmin.Size = new System.Drawing.Size(92, 23);
+            this.btnSendVideoAdmin.Size = new System.Drawing.Size(89, 23);
             this.btnSendVideoAdmin.TabIndex = 12;
             this.btnSendVideoAdmin.Text = "Send Video";
             this.btnSendVideoAdmin.UseVisualStyleBackColor = true;
@@ -272,9 +272,9 @@ namespace Codino_BOT_Telegram
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(354, 35);
+            this.txtId.Location = new System.Drawing.Point(298, 35);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(224, 23);
+            this.txtId.Size = new System.Drawing.Size(280, 23);
             this.txtId.TabIndex = 0;
             // 
             // Form1
