@@ -23,6 +23,10 @@ namespace Codino_BOT_Telegram
         private bool isBotRunning;
         private ReplyKeyboardMarkup mainKeyboardmarkup;
 
+        private int voteExcellent = 10;
+        private int voteGood = 15;
+        private int voteAverage = 20;
+
         public Form1()
         {
             InitializeComponent();
@@ -62,7 +66,7 @@ namespace Codino_BOT_Telegram
         {
             try
             {
-                bot = new TelegramBotClient(token); 
+                bot = new TelegramBotClient(token);
                 var me = await bot.GetMe();                     // (اول مطمئن شویم که بات آنلاین شده) 
                 this.Invoke(new Action(() =>
                 {
@@ -96,6 +100,53 @@ namespace Codino_BOT_Telegram
                     {
                         offset = update.Id + 1;
 
+                        if (update.CallbackQuery != null)
+                        {
+                            switch (update.CallbackQuery.Data)
+                            {
+                                case "1":
+                                    {
+                                        voteExcellent += 1;
+                                        break;
+                                    }
+                                case "2":
+                                    {
+                                        voteGood += 1;
+                                        break;
+                                    }
+                                case "3":
+                                    {
+                                        voteAverage += 1;
+                                        break;
+                                    }
+                            }
+
+                            InlineKeyboardMarkup inlineKeyboardCallBack = new InlineKeyboardMarkup();
+
+                            InlineKeyboardButton[] row1CallBack =
+                            {
+                                InlineKeyboardButton.WithCallbackData("بله راضی هستم   " + voteExcellent, "1")
+                            };
+
+                            InlineKeyboardButton[] row2CallBack =
+                            {
+                                InlineKeyboardButton.WithCallbackData("خیلی خوب بود    " + voteGood , "2")
+                            };
+
+                            InlineKeyboardButton[] row3CallBack =
+                            {
+                                InlineKeyboardButton.WithCallbackData("عالی بود      " + voteAverage, "3")
+                            };
+
+                            inlineKeyboardCallBack.InlineKeyboard = new InlineKeyboardButton[][]
+                            {
+                                row1CallBack,
+                                row2CallBack,
+                                row3CallBack
+                            };
+
+                            await bot.EditMessageReplyMarkup(update.CallbackQuery.Message.Chat.Id, update.CallbackQuery.Message.MessageId, inlineKeyboardCallBack);
+                        }
                         if (update.Message == null) continue;
 
                         var text = update.Message.Text.ToLower();
@@ -111,7 +162,7 @@ namespace Codino_BOT_Telegram
                             sb.AppendLine("تماس با ما : /ContactUs");
                             sb.AppendLine("آدرس ما : /Address");
                             await bot.SendMessage(chatid, sb.ToString(), replyMarkup: mainKeyboardmarkup);
-                          
+
                         }
 
                         else if (text.Contains("/aboutus") || text.Contains("درباره ما"))
@@ -138,13 +189,13 @@ namespace Codino_BOT_Telegram
                             {
                                 new KeyboardButton("بازگشت")
                             };
-                            
+
                             contactKeyboardMarkup.Keyboard = new KeyboardButton[][]
                             {
                                 row1,
                                 row2
                             };
-                                
+
                             await bot.SendMessage(chatid, sb.ToString(), replyMarkup: contactKeyboardMarkup);
                         }
 
@@ -169,7 +220,7 @@ namespace Codino_BOT_Telegram
 
                         else if (text.Contains("بازگشت"))
                         {
-                            await bot.SendMessage(chatid, "بازکشت به منوی اصلی",replyMarkup: mainKeyboardmarkup);
+                            await bot.SendMessage(chatid, "بازکشت به منوی اصلی", replyMarkup: mainKeyboardmarkup);
                         }
 
                         else if (text.Contains("نظرسنجی"))
@@ -178,17 +229,17 @@ namespace Codino_BOT_Telegram
 
                             InlineKeyboardButton[] row1 =
                             {
-                                InlineKeyboardButton.WithCallbackData("بله راضی هستم 0.", "1")
+                                InlineKeyboardButton.WithCallbackData("بله راضی هستم   " + voteExcellent, "1")
                             };
-                            
+
                             InlineKeyboardButton[] row2 =
                             {
-                                InlineKeyboardButton.WithCallbackData("خیلی خوب بود 0", "2")
+                                InlineKeyboardButton.WithCallbackData("خیلی خوب بود    " + voteGood , "2")
                             };
-                            
+
                             InlineKeyboardButton[] row3 =
                             {
-                                InlineKeyboardButton.WithCallbackData("عالی یود 0", "3")
+                                InlineKeyboardButton.WithCallbackData("عالی بود      " + voteAverage, "3")
                             };
 
                             inlineKeyboard.InlineKeyboard = new InlineKeyboardButton[][]
@@ -209,6 +260,7 @@ namespace Codino_BOT_Telegram
 
                     }
                 }
+
                 catch (Exception)
                 {
                     MessageBox.Show("خطایی پیش آمد لطفا بعدا دوباره امتحان کنید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -275,7 +327,7 @@ namespace Codino_BOT_Telegram
 
                 FileStream fileName = new FileStream(txtFilePath.Text, FileMode.Open);
 
-                await bot.SendVideo(chatid, fileName, caption: txtMessage.Text); 
+                await bot.SendVideo(chatid, fileName, caption: txtMessage.Text);
             }
         }
 
