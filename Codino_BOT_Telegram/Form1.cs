@@ -152,7 +152,19 @@ namespace Codino_BOT_Telegram
                         {
                             StringBuilder sb = new StringBuilder();
                             sb.AppendLine("مجموعه کدینو");
-                            await bot.SendMessage(chatid, sb.ToString());
+
+                            InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup();
+                            InlineKeyboardButton[] row1 =
+                            {
+                                new InlineKeyboardButton("تاپ لرن", "https://toplearn.com"),
+                                new InlineKeyboardButton("برنامه نویسان", "https://barnamenevisan.org"),
+                            };
+                            inlineKeyboard.InlineKeyboard = new InlineKeyboardButton[][]
+                            {
+                                row1
+                            };
+
+                            await bot.SendMessage(chatid, sb.ToString(), replyMarkup: inlineKeyboard);
                         }
 
                         else if (text.Contains("بازگشت"))
