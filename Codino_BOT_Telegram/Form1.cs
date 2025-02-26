@@ -172,6 +172,35 @@ namespace Codino_BOT_Telegram
                             await bot.SendMessage(chatid, "بازکشت به منوی اصلی",replyMarkup: mainKeyboardmarkup);
                         }
 
+                        else if (text.Contains("نظرسنجی"))
+                        {
+                            InlineKeyboardMarkup inlineKeyboard = new InlineKeyboardMarkup();
+
+                            InlineKeyboardButton[] row1 =
+                            {
+                                InlineKeyboardButton.WithCallbackData("بله راضی هستم 0.", "1")
+                            };
+                            
+                            InlineKeyboardButton[] row2 =
+                            {
+                                InlineKeyboardButton.WithCallbackData("خیلی خوب بود 0", "2")
+                            };
+                            
+                            InlineKeyboardButton[] row3 =
+                            {
+                                InlineKeyboardButton.WithCallbackData("عالی یود 0", "3")
+                            };
+
+                            inlineKeyboard.InlineKeyboard = new InlineKeyboardButton[][]
+                            {
+                                row1,
+                                row2,
+                                row3
+                            };
+
+                            await bot.SendMessage(chatid, "لطفا نظر خود را اعلام فرمایید.", replyMarkup: inlineKeyboard);
+                        }
+
                         dgvReport.Invoke(new Action(() =>
                         {
                             dgvReport.Rows.Add(chatid, from.Username, text, update.Message.MessageId,
