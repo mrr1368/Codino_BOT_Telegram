@@ -1,5 +1,5 @@
 🌟 Kodino - Telegram Bot Prototype 🌟
-Kordino is a prototype Telegram bot designed to explore and challenge various components of Telegram bot projects. This bot serves as the foundation for more advanced bots that will be built in the future. 🚀
+Kodino is a prototype Telegram bot designed to explore and challenge various components of Telegram bot projects. This bot serves as the foundation for more advanced bots that will be built in the future. 🚀
 
 🚧 Current Status:
 This is just a basic version aimed at testing different functionalities, including:
@@ -20,7 +20,7 @@ This bot will be continuously improved, with plans to add more features and enha
 Stay tuned for future versions! 👀
 
 
-🌟 کوردینو - ربات تلگرام نمونه اولیه 🌟
+🌟 کودینو - ربات تلگرام نمونه اولیه 🌟
 کوردینو یک ربات تلگرام نمونه اولیه است که برای کاوش و چالش‌های مختلف در اجزای پروژه‌های ربات تلگرام طراحی شده است. این ربات به عنوان پایه برای ربات‌های پیشرفته‌تری است که در آینده ساخته خواهند شد. 🚀
 
 🚧 وضعیت فعلی:
